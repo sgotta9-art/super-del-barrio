@@ -1,27 +1,120 @@
-body {
-  font-family: Arial, sans-serif;
+:root {
+  --whatsapp: #25D366;
+  --instagram: linear-gradient(45deg,#C13584,#F77737);
+  --btn-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #fff8f0;
-  text-align: center;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  /* Fondo moderno sin imágenes */
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 header {
-  background: #ff4d4d;
-  color: white;
-  padding: 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 20px auto 10px;
+  z-index: 1;
+  position: relative;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.header-text h1 {
+  font-size: 1.8rem;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 25px;
-  background: #fff;
-  color: #ff4d4d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  color: #fff;
   text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: all 0.2s;
 }
-.btn:hover {
-  background: #ffe6e6;
+
+.btn svg { display: block; color: inherit; }
+
+.btn:hover { filter: brightness(0.95); }
+
+.btn-whatsapp { background: var(--whatsapp); }
+.btn-instagram { background: var(--instagram); }
+
+.services {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.25);
 }
+
+.services h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.services ul { list-style: none; }
+
+.services li { margin: 8px 0; font-size: 1rem; }
+
+footer {
+  margin-top: auto;
+  padding: 18px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  background: rgba(0,0,0,0.2);
+}
+
+footer a { color: #FFD166; text-decoration: none; }
+
+@media (max-width:700px){
+  header{flex-direction:column;align-items:flex-start}
+  .actions{width:100%;justify-content:flex-start;gap:10px;margin-top:10px}
+}
+
